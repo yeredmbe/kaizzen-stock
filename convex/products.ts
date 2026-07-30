@@ -116,10 +116,10 @@ export const recordSale = mutation({
     const saleProfit = product.profitXAF * args.quantitySold;
 
     await ctx.db.patch(args.id, {
-      numberSold: product.numberSold + args.quantitySold,
-      totalSalesXAF: product.totalSalesXAF + saleRevenue,
-      totalProfitXAF: product.totalProfitXAF + saleProfit,
-      // Decrease stock by the quantity sold
+      numberSold: args.quantitySold,
+      totalSalesXAF: saleRevenue,
+      totalProfitXAF: saleProfit,
+      // Set stock to remaining after this sale
       quantity: Math.max(0, product.quantity - args.quantitySold),
     });
   },

@@ -71,8 +71,10 @@ function RecordSaleDialog({
 type Category = "shoes" | "clothes" | "other";
 
 export default function ProductTable({
+  onView,
   onEdit,
 }: {
+  onView: (id: Id<"products">) => void;
   onEdit: (id: Id<"products">) => void;
 }) {
   const [category, setCategory] = useState<Category | "all">("all");
@@ -193,6 +195,12 @@ export default function ProductTable({
                     className="text-xs font-medium text-ledger-good hover:opacity-70 mr-2"
                   >
                     + Sale
+                  </button>
+                  <button
+                    onClick={() => onView(p._id)}
+                    className="text-xs font-medium text-ledger-gold hover:opacity-70 mr-2"
+                  >
+                    View
                   </button>
                   <button
                     onClick={() => onEdit(p._id)}

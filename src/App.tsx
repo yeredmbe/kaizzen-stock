@@ -3,8 +3,13 @@ import { Id } from "../convex/_generated/dataModel";
 import Dashboard from "./components/Dashboard";
 import ProductTable from "./components/ProductTable";
 import ProductForm from "./components/ProductForm";
+import ProductDetail from "./components/ProductDetail";
 
-type View = { name: "list" } | { name: "new" } | { name: "edit"; id: Id<"products"> };
+type View =
+  | { name: "list" }
+  | { name: "new" }
+  | { name: "edit"; id: Id<"products"> }
+  | { name: "detail"; id: Id<"products"> };
 
 export default function App() {
   const [view, setView] = useState<View>({ name: "list" });
@@ -43,11 +48,21 @@ export default function App() {
         {view.name === "list" && (
           <>
             <Dashboard />
-            <ProductTable onEdit={(id) => setView({ name: "edit", id })} />
+            <ProductTable
+              onView={(id) => setView({ name: "detail", id })}
+              onEdit={(id) => setView({ name: "edit", id })}
+            />
           </>
         )}
         {view.name === "new" && (
           <ProductForm onDone={() => setView({ name: "list" })} />
+        )}
+        {view.name === "detail" && (
+          <ProductDetail
+            productId={view.id}
+            onEdit={(id) => setView({ name: "edit", id })}
+            onBack={() => setView({ name: "list" })}
+          />
         )}
         {view.name === "edit" && (
           <ProductForm
