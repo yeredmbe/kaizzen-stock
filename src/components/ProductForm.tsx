@@ -28,20 +28,20 @@ function TagInput({
 
   return (
     <div>
-      <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+      <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
         {label}
       </label>
       <div className="flex flex-wrap gap-2 mb-2">
         {values.map((v) => (
           <span
             key={v}
-            className="inline-flex items-center gap-1 rounded-sm bg-ledger-goldSoft px-2 py-1 text-xs font-medium text-ledger-ink"
+            className="inline-flex items-center gap-1 rounded-sm bg-ledger-goldSoft px-2 py-1 text-xs font-medium text-ledger-ink dark:bg-ledger-dark-goldSoft dark:text-ledger-dark-ink"
           >
             {v}
             <button
               type="button"
               onClick={() => onChange(values.filter((x) => x !== v))}
-              className="text-ledger-inkSoft hover:text-ledger-bad"
+              className="text-ledger-inkSoft hover:text-ledger-bad dark:text-ledger-dark-inkSoft dark:hover:text-ledger-dark-bad"
             >
               ×
             </button>
@@ -59,7 +59,7 @@ function TagInput({
         }}
         onBlur={commit}
         placeholder={placeholder}
-        className="w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink"
+        className="w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink dark:border-ledger-dark-line dark:bg-ledger-dark-bg dark:text-ledger-dark-ink dark:focus:border-ledger-dark-ink"
       />
     </div>
   );
@@ -147,32 +147,32 @@ export default function ProductForm({
 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl">
-      <h2 className="font-display text-xl font-semibold text-ledger-ink mb-6">
+      <h2 className="font-display text-xl font-semibold text-ledger-ink mb-6 dark:text-ledger-dark-ink">
         {productId ? "Edit product" : "New product"}
       </h2>
 
       <div className="space-y-5">
         <div>
-          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
             Name
           </label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g. Air runner sneaker"
-            className="w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink"
+            className="w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink dark:border-ledger-dark-line dark:bg-ledger-dark-bg dark:text-ledger-dark-ink dark:focus:border-ledger-dark-ink"
           />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+            <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
               Category
             </label>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value as Category)}
-              className="w-full rounded-sm border border-ledger-line px-3 py-2 text-sm bg-white focus:border-ledger-ink"
+              className="w-full rounded-sm border border-ledger-line px-3 py-2 text-sm bg-white focus:border-ledger-ink dark:border-ledger-dark-line dark:bg-ledger-dark-panel dark:text-ledger-dark-ink dark:focus:border-ledger-dark-ink"
             >
               <option value="shoes">Shoes</option>
               <option value="clothes">Clothes</option>
@@ -180,7 +180,7 @@ export default function ProductForm({
             </select>
           </div>
           <div>
-            <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+            <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
               Quantity in stock
             </label>
             <input
@@ -188,13 +188,13 @@ export default function ProductForm({
               min={0}
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
-              className="tnum w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink"
+              className="tnum w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink dark:border-ledger-dark-line dark:bg-ledger-dark-bg dark:text-ledger-dark-ink dark:focus:border-ledger-dark-ink"
             />
           </div>
         </div>
 
         <div>
-          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
             Supplier price (Yuan)
           </label>
           <input
@@ -203,20 +203,20 @@ export default function ProductForm({
             step="0.01"
             value={priceYuan}
             onChange={(e) => setPriceYuan(Number(e.target.value))}
-            className="tnum w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink"
+            className="tnum w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink dark:border-ledger-dark-line dark:bg-ledger-dark-bg dark:text-ledger-dark-ink dark:focus:border-ledger-dark-ink"
           />
-          <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3 rounded-sm bg-ledger-bg border border-ledger-line p-2 sm:p-3 text-[10px] sm:text-xs">
+          <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3 rounded-sm bg-ledger-bg border border-ledger-line p-2 sm:p-3 text-[10px] sm:text-xs dark:bg-ledger-dark-bg dark:border-ledger-dark-line">
             <div>
-              <p className="text-ledger-inkSoft">Cost</p>
-              <p className="tnum font-medium text-ledger-ink">{formatXAF(costXAF(priceYuan))}</p>
+              <p className="text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Cost</p>
+              <p className="tnum font-medium text-ledger-ink dark:text-ledger-dark-ink">{formatXAF(costXAF(priceYuan))}</p>
             </div>
             <div>
-              <p className="text-ledger-inkSoft">Sell (+20%)</p>
-              <p className="tnum font-medium text-ledger-gold">{formatXAF(sellXAF(priceYuan))}</p>
+              <p className="text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Sell (+20%)</p>
+              <p className="tnum font-medium text-ledger-gold dark:text-ledger-dark-gold">{formatXAF(sellXAF(priceYuan))}</p>
             </div>
             <div>
-              <p className="text-ledger-inkSoft">Profit</p>
-              <p className="tnum font-medium text-ledger-good">{formatXAF(profitXAF(priceYuan))}</p>
+              <p className="text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Profit</p>
+              <p className="tnum font-medium text-ledger-good dark:text-ledger-dark-good">{formatXAF(profitXAF(priceYuan))}</p>
             </div>
           </div>
         </div>
@@ -224,7 +224,7 @@ export default function ProductForm({
         <TagInput label="Colors available" values={colors} onChange={setColors} placeholder="Type a color, press Enter" />
 
         <div>
-          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
             Sizes available
           </label>
           {sizeOptions.length > 0 ? (
@@ -238,8 +238,8 @@ export default function ProductForm({
                     onClick={() => setSizes(active ? sizes.filter((x) => x !== s) : [...sizes, s])}
                     className={`px-3 py-1 rounded-sm text-xs font-medium border ${
                       active
-                        ? "bg-ledger-ink text-white border-ledger-ink"
-                        : "bg-white text-ledger-inkSoft border-ledger-line hover:border-ledger-ink"
+                        ? "bg-ledger-ink text-white border-ledger-ink dark:bg-ledger-dark-ink dark:border-ledger-dark-ink"
+                        : "bg-white text-ledger-inkSoft border-ledger-line hover:border-ledger-ink dark:bg-ledger-dark-panel dark:text-ledger-dark-inkSoft dark:border-ledger-dark-line dark:hover:border-ledger-dark-ink"
                     }`}
                   >
                     {s}
@@ -253,7 +253,7 @@ export default function ProductForm({
         </div>
 
         <div>
-          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
             Images
           </label>
           <div className="flex flex-wrap gap-3 mb-2">
@@ -278,10 +278,10 @@ export default function ProductForm({
             disabled={uploading}
             className="text-sm"
           />
-          {uploading && <p className="text-xs text-ledger-inkSoft mt-1">Uploading…</p>}
+          {uploading && <p className="text-xs text-ledger-inkSoft mt-1 dark:text-ledger-dark-inkSoft">Uploading…</p>}
         </div>
 
-        <label className="flex items-center gap-2 text-sm text-ledger-ink">
+        <label className="flex items-center gap-2 text-sm text-ledger-ink dark:text-ledger-dark-ink">
           <input
             type="checkbox"
             checked={isAvailable}
@@ -291,7 +291,7 @@ export default function ProductForm({
           Available for sale
         </label>
 
-        {error && <p className="text-sm text-ledger-bad">{error}</p>}
+        {error && <p className="text-sm text-ledger-bad dark:text-ledger-dark-bad">{error}</p>}
 
         <div className="flex gap-3 pt-2">
           <button
@@ -304,7 +304,7 @@ export default function ProductForm({
           <button
             type="button"
             onClick={onDone}
-            className="rounded-sm px-5 py-2.5 text-sm font-medium text-ledger-inkSoft hover:text-ledger-ink"
+            className="rounded-sm px-5 py-2.5 text-sm font-medium text-ledger-inkSoft hover:text-ledger-ink dark:text-ledger-dark-inkSoft dark:hover:text-ledger-dark-ink"
           >
             Cancel
           </button>

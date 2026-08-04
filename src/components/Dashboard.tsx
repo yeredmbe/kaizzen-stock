@@ -13,16 +13,16 @@ function StatCard({
 }) {
   const accentColor =
     accent === "gold"
-      ? "text-ledger-gold"
+      ? "text-ledger-gold dark:text-ledger-dark-gold"
       : accent === "good"
-      ? "text-ledger-good"
+      ? "text-ledger-good dark:text-ledger-dark-good"
       : accent === "bad"
-      ? "text-ledger-bad"
-      : "text-ledger-ink";
+      ? "text-ledger-bad dark:text-ledger-dark-bad"
+      : "text-ledger-ink dark:text-ledger-dark-ink";
 
   return (
-    <div className="rounded-sm border border-ledger-line bg-ledger-panel p-5">
-      <p className="font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft">
+    <div className="rounded-sm border border-ledger-line bg-ledger-panel p-5 dark:border-ledger-dark-line dark:bg-ledger-dark-panel">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft dark:text-ledger-dark-inkSoft">
         {label}
       </p>
       <p className={`tnum font-display text-2xl font-semibold mt-1 ${accentColor}`}>
@@ -39,7 +39,7 @@ export default function Dashboard() {
     return (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="h-24 rounded-sm border border-ledger-line bg-ledger-panel animate-pulse" />
+          <div key={i} className="h-24 rounded-sm border border-ledger-line bg-ledger-panel animate-pulse dark:border-ledger-dark-line dark:bg-ledger-dark-panel" />
         ))}
       </div>
     );

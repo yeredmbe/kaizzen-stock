@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
@@ -14,6 +15,17 @@ export default {
           good: "#2E6B4F",
           bad: "#A73E3E",
           panel: "#FFFFFF",
+          dark: {
+            bg: "#111827",
+            ink: "#E5E7EB",
+            inkSoft: "#9CA3AF",
+            line: "#374151",
+            gold: "#D4A72C",
+            goldSoft: "#3D3420",
+            good: "#4ADE80",
+            bad: "#F87171",
+            panel: "#1F2937",
+          },
         },
       },
       fontFamily: {

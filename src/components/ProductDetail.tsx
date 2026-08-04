@@ -31,12 +31,12 @@ function RecordSaleDialog({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 px-4">
-      <form onSubmit={handleSubmit} className="bg-white rounded-sm border border-ledger-line p-6 w-full max-w-sm shadow-lg">
-        <h3 className="font-display text-lg font-semibold text-ledger-ink mb-2">
+      <form onSubmit={handleSubmit} className="bg-white rounded-sm border border-ledger-line p-6 w-full max-w-sm shadow-lg dark:bg-ledger-dark-panel dark:border-ledger-dark-line">
+        <h3 className="font-display text-lg font-semibold text-ledger-ink mb-2 dark:text-ledger-dark-ink">
           Record sale
         </h3>
-        <p className="text-sm text-ledger-inkSoft mb-4">{productName}</p>
-        <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+        <p className="text-sm text-ledger-inkSoft mb-4 dark:text-ledger-dark-inkSoft">{productName}</p>
+        <label className="block font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
           Quantity sold
         </label>
         <input
@@ -44,14 +44,14 @@ function RecordSaleDialog({
           min={1}
           value={qty}
           onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
-          className="tnum w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink mb-4"
+          className="tnum w-full rounded-sm border border-ledger-line px-3 py-2 text-sm focus:border-ledger-ink mb-4 dark:border-ledger-dark-line dark:bg-ledger-dark-bg dark:text-ledger-dark-ink dark:focus:border-ledger-dark-ink"
           autoFocus
         />
         <div className="flex gap-3 justify-end">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-sm px-4 py-2 text-sm font-medium text-ledger-inkSoft hover:text-ledger-ink"
+            className="rounded-sm px-4 py-2 text-sm font-medium text-ledger-inkSoft hover:text-ledger-ink dark:text-ledger-dark-inkSoft dark:hover:text-ledger-dark-ink"
           >
             Cancel
           </button>
@@ -92,8 +92,8 @@ export default function ProductDetail({
   if (product === null) {
     return (
       <div className="text-center py-20">
-        <p className="text-ledger-inkSoft">Product not found.</p>
-        <button onClick={onBack} className="mt-4 text-sm font-medium text-ledger-ink hover:text-ledger-gold">
+        <p className="text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Product not found.</p>
+        <button onClick={onBack} className="mt-4 text-sm font-medium text-ledger-ink hover:text-ledger-gold dark:text-ledger-dark-ink dark:hover:text-ledger-dark-gold">
           ← Back to ledger
         </button>
       </div>
@@ -105,7 +105,7 @@ export default function ProductDetail({
       {/* Back button */}
       <button
         onClick={onBack}
-        className="flex items-center gap-1 text-sm font-medium text-ledger-inkSoft hover:text-ledger-ink mb-6 transition-colors"
+        className="flex items-center gap-1 text-sm font-medium text-ledger-inkSoft hover:text-ledger-ink mb-6 transition-colors dark:text-ledger-dark-inkSoft dark:hover:text-ledger-dark-ink"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -118,7 +118,7 @@ export default function ProductDetail({
         <div className="lg:col-span-3">
           {product.images.length > 0 ? (
             <>
-              <div className="aspect-square rounded-sm border border-ledger-line bg-ledger-panel overflow-hidden mb-3">
+              <div className="aspect-square rounded-sm border border-ledger-line bg-ledger-panel overflow-hidden mb-3 dark:border-ledger-dark-line dark:bg-ledger-dark-panel">
                 <img
                   src={product.images[selectedImage]?.url}
                   alt={product.name}
@@ -133,8 +133,8 @@ export default function ProductDetail({
                       onClick={() => setSelectedImage(i)}
                       className={`shrink-0 h-16 w-16 rounded-sm border-2 overflow-hidden transition-colors ${
                         i === selectedImage
-                          ? "border-ledger-gold"
-                          : "border-ledger-line hover:border-ledger-inkSoft"
+                          ? "border-ledger-gold dark:border-ledger-dark-gold"
+                          : "border-ledger-line hover:border-ledger-inkSoft dark:border-ledger-dark-line dark:hover:border-ledger-dark-inkSoft"
                       }`}
                     >
                       <img src={img.url} alt="" className="h-full w-full object-cover" />
@@ -144,7 +144,7 @@ export default function ProductDetail({
               )}
             </>
           ) : (
-            <div className="aspect-square rounded-sm border border-ledger-line bg-ledger-panel flex items-center justify-center">
+            <div className="aspect-square rounded-sm border border-ledger-line bg-ledger-panel flex items-center justify-center dark:border-ledger-dark-line dark:bg-ledger-dark-panel">
               <svg className="w-16 h-16 text-ledger-inkSoft/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
@@ -156,35 +156,35 @@ export default function ProductDetail({
         <div className="lg:col-span-2 space-y-6">
           {/* Header */}
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-gold mb-1">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-gold mb-1 dark:text-ledger-dark-gold">
               {product.category}
             </p>
-            <h1 className="font-display text-2xl sm:text-3xl font-semibold text-ledger-ink leading-tight">
+            <h1 className="font-display text-2xl sm:text-3xl font-semibold text-ledger-ink leading-tight dark:text-ledger-dark-ink">
               {product.name}
             </h1>
           </div>
 
           {/* Pricing card */}
-          <div className="rounded-sm border border-ledger-line bg-ledger-panel divide-y divide-ledger-line">
+          <div className="rounded-sm border border-ledger-line bg-ledger-panel divide-y divide-ledger-line dark:border-ledger-dark-line dark:bg-ledger-dark-panel dark:divide-ledger-dark-line">
             <div className="p-4">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-2">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-2 dark:text-ledger-dark-inkSoft">
                 Pricing
               </p>
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <p className="text-[10px] text-ledger-inkSoft">Cost</p>
-                  <p className="tnum font-medium text-ledger-ink">{formatYuan(product.priceYuan)}</p>
-                  <p className="tnum text-[11px] text-ledger-inkSoft">{formatXAF(product.costXAF)}</p>
+                  <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Cost</p>
+                  <p className="tnum font-medium text-ledger-ink dark:text-ledger-dark-ink">{formatYuan(product.priceYuan)}</p>
+                  <p className="tnum text-[11px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">{formatXAF(product.costXAF)}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-ledger-inkSoft">Sell</p>
-                  <p className="tnum font-medium text-ledger-gold">{formatXAF(product.sellXAF)}</p>
-                  <p className="tnum text-[11px] text-ledger-inkSoft">+20% margin</p>
+                  <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Sell</p>
+                  <p className="tnum font-medium text-ledger-gold dark:text-ledger-dark-gold">{formatXAF(product.sellXAF)}</p>
+                  <p className="tnum text-[11px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">+20% margin</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-ledger-inkSoft">Profit</p>
-                  <p className="tnum font-medium text-ledger-good">{formatXAF(product.profitXAF)}</p>
-                  <p className="tnum text-[11px] text-ledger-inkSoft">per unit</p>
+                  <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Profit</p>
+                  <p className="tnum font-medium text-ledger-good dark:text-ledger-dark-good">{formatXAF(product.profitXAF)}</p>
+                  <p className="tnum text-[11px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">per unit</p>
                 </div>
               </div>
             </div>
@@ -192,18 +192,18 @@ export default function ProductDetail({
             {/* Stock */}
             <div className="p-4 flex items-center justify-between">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft dark:text-ledger-dark-inkSoft">
                   Stock
                 </p>
-                <p className="tnum font-display text-xl font-semibold text-ledger-ink mt-1">
+                <p className="tnum font-display text-xl font-semibold text-ledger-ink mt-1 dark:text-ledger-dark-ink">
                   {product.quantity}
                 </p>
               </div>
               <span
                 className={`px-3 py-1.5 rounded-sm text-xs font-medium ${
                   product.isAvailable
-                    ? "bg-ledger-good/10 text-ledger-good"
-                    : "bg-ledger-bad/10 text-ledger-bad"
+                    ? "bg-ledger-good/10 text-ledger-good dark:bg-ledger-dark-good/10 dark:text-ledger-dark-good"
+                    : "bg-ledger-bad/10 text-ledger-bad dark:bg-ledger-dark-bad/10 dark:text-ledger-dark-bad"
                 }`}
               >
                 {product.isAvailable ? "Available" : "Unavailable"}
@@ -212,22 +212,22 @@ export default function ProductDetail({
           </div>
 
           {/* Sales tracking card */}
-          <div className="rounded-sm border border-ledger-line bg-ledger-panel p-4">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-3">
+          <div className="rounded-sm border border-ledger-line bg-ledger-panel p-4 dark:border-ledger-dark-line dark:bg-ledger-dark-panel">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-3 dark:text-ledger-dark-inkSoft">
               Sales history
             </p>
             <div className="grid grid-cols-3 gap-3">
               <div>
-                <p className="text-[10px] text-ledger-inkSoft">Sold</p>
-                <p className="tnum font-display text-lg font-semibold text-ledger-ink">{product.numberSold}</p>
+                <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Sold</p>
+                <p className="tnum font-display text-lg font-semibold text-ledger-ink dark:text-ledger-dark-ink">{product.numberSold}</p>
               </div>
               <div>
-                <p className="text-[10px] text-ledger-inkSoft">Revenue</p>
-                <p className="tnum font-display text-lg font-semibold text-ledger-gold">{formatXAF(product.totalSalesXAF)}</p>
+                <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Revenue</p>
+                <p className="tnum font-display text-lg font-semibold text-ledger-gold dark:text-ledger-dark-gold">{formatXAF(product.totalSalesXAF)}</p>
               </div>
               <div>
-                <p className="text-[10px] text-ledger-inkSoft">Profit</p>
-                <p className="tnum font-display text-lg font-semibold text-ledger-good">{formatXAF(product.totalProfitXAF)}</p>
+                <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Profit</p>
+                <p className="tnum font-display text-lg font-semibold text-ledger-good dark:text-ledger-dark-good">{formatXAF(product.totalProfitXAF)}</p>
               </div>
             </div>
           </div>
@@ -236,12 +236,12 @@ export default function ProductDetail({
           <div className="grid grid-cols-2 gap-4">
             {product.colors.length > 0 && (
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-2">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-2 dark:text-ledger-dark-inkSoft">
                   Colors
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {product.colors.map((c) => (
-                    <span key={c} className="rounded-sm bg-ledger-bg border border-ledger-line px-2 py-1 text-xs font-medium text-ledger-ink">
+                    <span key={c} className="rounded-sm bg-ledger-bg border border-ledger-line px-2 py-1 text-xs font-medium text-ledger-ink dark:bg-ledger-dark-bg dark:border-ledger-dark-line dark:text-ledger-dark-ink">
                       {c}
                     </span>
                   ))}
@@ -250,12 +250,12 @@ export default function ProductDetail({
             )}
             {product.sizes.length > 0 && (
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-2">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-2 dark:text-ledger-dark-inkSoft">
                   Sizes
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {product.sizes.map((s) => (
-                    <span key={s} className="rounded-sm bg-ledger-bg border border-ledger-line px-2 py-1 text-xs font-medium text-ledger-ink">
+                    <span key={s} className="rounded-sm bg-ledger-bg border border-ledger-line px-2 py-1 text-xs font-medium text-ledger-ink dark:bg-ledger-dark-bg dark:border-ledger-dark-line dark:text-ledger-dark-ink">
                       {s}
                     </span>
                   ))}
@@ -267,10 +267,10 @@ export default function ProductDetail({
           {/* Notes */}
           {product.notes && (
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-1.5">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-ledger-inkSoft mb-1.5 dark:text-ledger-dark-inkSoft">
                 Notes
               </p>
-              <p className="text-sm text-ledger-ink bg-ledger-bg border border-ledger-line rounded-sm p-3">
+              <p className="text-sm text-ledger-ink bg-ledger-bg border border-ledger-line rounded-sm p-3 dark:text-ledger-dark-ink dark:bg-ledger-dark-bg dark:border-ledger-dark-line">
                 {product.notes}
               </p>
             </div>

@@ -7,6 +7,10 @@ body {
   color: #1b2a4a;
 }
 
+.dark body {
+  color: #e5e7eb;
+}
+
 .tnum {
   font-variant-numeric: tabular-nums;
 }

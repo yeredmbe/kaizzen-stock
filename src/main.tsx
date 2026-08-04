@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 import App from "./App";
+import { ThemeProvider } from "./lib/theme";
 import "./index.css";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
@@ -9,7 +10,9 @@ const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ConvexProvider client={convex}>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </ConvexProvider>
   </React.StrictMode>
 );
