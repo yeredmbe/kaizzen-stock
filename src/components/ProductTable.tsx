@@ -120,6 +120,7 @@ export default function ProductTable({
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-ledger-line bg-ledger-bg/60 text-left font-mono text-[11px] uppercase tracking-widest text-ledger-inkSoft">
+              <th className="px-4 py-3 whitespace-nowrap">ID</th>
               <th className="px-4 py-3 whitespace-nowrap">Product</th>
               <th className="px-4 py-3 whitespace-nowrap">Colors</th>
               <th className="px-4 py-3 whitespace-nowrap">Sizes</th>
@@ -149,8 +150,13 @@ export default function ProductTable({
                 </td>
               </tr>
             )}
-            {products?.map((p) => (
-              <tr key={p._id} className="border-b border-ledger-line last:border-0 hover:bg-ledger-bg/40">
+            {products?.map((p, i) => (
+              <tr
+                key={p._id}
+                onClick={() => onView(p._id)}
+                className="border-b border-ledger-line last:border-0 hover:bg-ledger-bg/40 cursor-pointer"
+              >
+                <td className="px-4 py-3 text-ledger-inkSoft whitespace-nowrap">{i + 1}</td>
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     {p.images[0] ? (
@@ -179,7 +185,10 @@ export default function ProductTable({
                 <td className="tnum px-4 py-3 text-right whitespace-nowrap">{p.quantity}</td>
                 <td className="px-4 py-3 whitespace-nowrap">
                   <button
-                    onClick={() => setAvailability({ id: p._id, isAvailable: !p.isAvailable })}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setAvailability({ id: p._id, isAvailable: !p.isAvailable });
+                    }}
                     className={`px-2 py-1 rounded-sm text-xs font-medium ${
                       p.isAvailable
                         ? "bg-ledger-good/10 text-ledger-good"
@@ -191,25 +200,35 @@ export default function ProductTable({
                 </td>
                 <td className="px-4 py-3 text-right whitespace-nowrap">
                   <button
-                    onClick={() => setRecordSaleFor({ id: p._id, name: p.name })}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setRecordSaleFor({ id: p._id, name: p.name });
+                    }}
                     className="text-xs font-medium text-ledger-good hover:opacity-70 mr-2"
                   >
                     + Sale
                   </button>
                   <button
-                    onClick={() => onView(p._id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onView(p._id);
+                    }}
                     className="text-xs font-medium text-ledger-gold hover:opacity-70 mr-2"
                   >
                     View
                   </button>
                   <button
-                    onClick={() => onEdit(p._id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onEdit(p._id);
+                    }}
                     className="text-xs font-medium text-ledger-inkSoft hover:text-ledger-ink mr-2"
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       if (confirm(`Remove "${p.name}" from the ledger?`)) remove({ id: p._id });
                     }}
                     className="text-xs font-medium text-ledger-bad hover:opacity-70"

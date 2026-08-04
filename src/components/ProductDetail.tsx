@@ -290,7 +290,6 @@ export default function ProductDetail({
                   [
                     `📝 *Name*: ${product.name}`,
                     `📝 *Category*: ${product.category ==="other"?"other / autres" : product.category }`,
-                    ``,
                     `💰 *Pricing*: (${formatXAF(product.sellXAF)})`,
                     ``,
                     product.colors.length ? `🎨 *Colors*: ${product.colors.join(", ")}` : "",
