@@ -1,14 +1,14 @@
 // Central pricing rules for the catalog.
 //
 // Sourcing currency is Yuan (CNY). The base conversion to XAF is a flat
-// x100 multiplier, then a 20% margin is added on top to get the sell price.
+// x100 multiplier, then a 30% margin is added on top to get the sell price.
 //
 //   costXAF   = priceYuan * 100
-//   sellXAF   = costXAF * 1.20
-//   profitXAF = sellXAF - costXAF   (== costXAF * 0.20)
+//   sellXAF   = costXAF * 1.30
+//   profitXAF = sellXAF - costXAF   (== costXAF * 0.30)
 
 export const YUAN_TO_XAF_RATE = 100;
-export const PROFIT_MARGIN = 0.2;
+export const PROFIT_MARGIN = 0.3;
 
 export function costXAF(priceYuan: number): number {
   return priceYuan * YUAN_TO_XAF_RATE;

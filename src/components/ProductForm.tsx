@@ -211,7 +211,7 @@ export default function ProductForm({
               <p className="tnum font-medium text-ledger-ink dark:text-ledger-dark-ink">{formatXAF(costXAF(priceYuan))}</p>
             </div>
             <div>
-              <p className="text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Sell (+20%)</p>
+              <p className="text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Sell (+30%)</p>
               <p className="tnum font-medium text-ledger-gold dark:text-ledger-dark-gold">{formatXAF(sellXAF(priceYuan))}</p>
             </div>
             <div>

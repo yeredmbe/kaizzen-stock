@@ -179,7 +179,7 @@ export default function ProductDetail({
                 <div>
                   <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Sell</p>
                   <p className="tnum font-medium text-ledger-gold dark:text-ledger-dark-gold">{formatXAF(product.sellXAF)}</p>
-                  <p className="tnum text-[11px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">+20% margin</p>
+                  <p className="tnum text-[11px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">+30% margin</p>
                 </div>
                 <div>
                   <p className="text-[10px] text-ledger-inkSoft dark:text-ledger-dark-inkSoft">Profit</p>

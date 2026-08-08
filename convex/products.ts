@@ -2,7 +2,7 @@ import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 
 const YUAN_TO_XAF_RATE = 100;
-const PROFIT_MARGIN = 0.2;
+const PROFIT_MARGIN = 0.3;
 
 function derivePricing(priceYuan: number) {
   const costXAF = priceYuan * YUAN_TO_XAF_RATE;
